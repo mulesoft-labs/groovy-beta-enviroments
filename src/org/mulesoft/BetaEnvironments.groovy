@@ -8,7 +8,7 @@ import groovy.json.*
 
     def betaEnvs = new BetaEnvironments("test-env", "YOUR_API_KEY")
     betaEnvs.create_environment()
-    def details = betaEnvs.get_environemnt_details()
+    def details = betaEnvs.get_environment_details()
     betaEnvs.delete_environment()
 */
 
@@ -57,7 +57,7 @@ class BetaEnvironments {
     }
 
     // TODO: test
-    Map get_environemnt_details () {
+    Map get_environment_details () {
         def request = new URL("${this.baseUrl}/environments").openConnection();
         request.setRequestProperty("Authorization", "Bearer ${this.token}")
         def response_code = request.getResponseCode();
@@ -79,7 +79,7 @@ class BetaEnvironments {
 
     // TODO: See how it works
     void delete_environment () {
-        this.details = this.get_environemnt_details()
+        this.details = this.get_environment_details()
         def request = new URL("${this.baseUrl}/environments/${this.details.id}").openConnection();
         request.setRequestMethod("DELETE")
         request.setRequestProperty("Authorization", "Bearer ${this.token}")
@@ -90,5 +90,3 @@ class BetaEnvironments {
 
     }
 }
-
-
