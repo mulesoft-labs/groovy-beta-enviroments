@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
-import groovy.json.*
 package org.mulesoft;
+
+import groovy.json.*
 
 /*
     Usage:
