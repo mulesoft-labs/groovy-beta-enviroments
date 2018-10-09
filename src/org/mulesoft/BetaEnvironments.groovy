@@ -38,7 +38,7 @@ class BetaEnvironments implements Serializable {
         if(!response_code.equals(201)) {
             throw new Exception("Response code is " + response_code + " which doesn't match 201")
         }
-        return new JsonSlurper().parseText(request.getInputStream().getText())
+        return new JsonSlurperClassic().parseText(request.getInputStream().getText())
     }
 
     static String get_post_message (name) {
@@ -65,7 +65,7 @@ class BetaEnvironments implements Serializable {
         if(!response_code.equals(200)) {
             throw new Exception("Response code is " + response_code + " which doesn't match 200")
         }
-        def allEnvironments = new JsonSlurper().parseText(request.getInputStream().getText())
+        def allEnvironments = new JsonSlurperClassic().parseText(request.getInputStream().getText())
         def environment
         for (def i = 0; i < allEnvironments.size(); i++) {
             if (allEnvironments[i].name == this.name) {
