@@ -13,6 +13,7 @@ import groovy.json.*
 */
 
 class BetaEnvironments implements Serializable {
+    static final long serialVersionUID = 3526473395612776159L
     String token
     String name
     String baseUrl
@@ -88,5 +89,15 @@ class BetaEnvironments implements Serializable {
             throw new Exception("Response code is " + response_code + " which doesn't match 504. Environment not deleted properly.")
         }
 
+    }
+
+    public String toString() {
+        def obj = [
+            "name": this.name,
+            "token": this.token,
+            "details": this.details,
+            "baseUrl": this.baseUrl
+        ]
+        return JsonOutput.toJson()
     }
 }
