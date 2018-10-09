@@ -12,7 +12,7 @@ import groovy.json.*
     betaEnvs.delete_environment()
 */
 
-class BetaEnvironments {
+class BetaEnvironments implements Serializable {
     String token
     String name
     String baseUrl
